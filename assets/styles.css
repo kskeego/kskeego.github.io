@@ -1,73 +1,75 @@
 
-/* Woodward Pizza — rich, modern restaurant theme using brand-like colors.
-   Palette approx. from current site/logo: deep red, black, off-white.
-*/
+/* Modern theme */
 :root{
-  --brand:#7a0f1c;      /* deep woodward red */
-  --brand-700:#5f0c16;
-  --gold:#d4a373;
-  --ink:#0c0c0e;
-  --bg:#0b0b0d;
-  --fg:#f7f7f8;
-  --muted:#b5b8bf;
-  --card:#141417;
-  --line:#24252a;
-  --bg-image: url('https://woodwardpizza.com'); /* TODO: set to the current site's background image URL */
+  --brand:#7a0f1c; --brand-700:#5f0c16; --gold:#ddb577;
+  --bg:#0a0a0c; --fg:#f7f8fb; --muted:#b9bdc6;
+  --card:#131418; --line:#23242a;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
 img{max-width:100%;height:auto}
 a{color:var(--gold);text-decoration:none}
-.container{width:min(1100px,92%);margin:0 auto}
-
+.container{width:min(1140px,92%);margin:0 auto}
 /* Header */
-.site-header{position:sticky;top:0;background:rgba(12,12,14,.75);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:20}
-.site-header .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
-.logo{display:flex;align-items:center;gap:.25rem;font-weight:800;letter-spacing:.4px}
-.logo .mark{display:inline-block;background:var(--brand);color:#fff;padding:.2rem .45rem;border-radius:6px}
-.logo .mark.alt{background:#fff;color:#000}
-.nav-links a{margin:0 .75rem;color:var(--fg);opacity:.95}
-.btn{background:var(--brand);color:#fff;padding:.65rem 1rem;border-radius:999px;font-weight:700;box-shadow:0 6px 16px rgba(122,15,28,.25);display:inline-block}
+.site-header{position:sticky;top:0;background:rgba(14,14,16,.65);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:30}
+.site-header .nav{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0}
+.logo img{display:block;height:42px;width:auto}
+@media (max-width:860px){.logo img{height:36px}}
+.nav-links{display:flex;align-items:center;gap:.9rem}
+.nav-links a{color:var(--fg)}
+.btn{background:linear-gradient(180deg,var(--brand),var(--brand-700));color:#fff;padding:.65rem 1rem;border-radius:999px;font-weight:700;box-shadow:0 10px 24px rgba(122,15,28,.28);display:inline-block;transition:transform .15s ease}
+.btn:hover{transform:translateY(-1px)}
 .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--fg)}
-
-/* Hero with background image from current site */
-.hero{position:relative;min-height:60vh;display:grid;place-items:center;background:
-  linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.75)),
-  var(--bg-image);
-background-size:cover;background-position:center}
-.hero .overlay{position:absolute;inset:0;pointer-events:none}
-.hero-inner{position:relative;z-index:2;padding:3rem 0}
-.hero-copy h1{font-family:'Playfair Display', serif;font-weight:700;font-size:clamp(2.2rem,5vw,4.2rem);line-height:1.05;margin:0 0 .6rem}
+/* Mobile nav */
+#nav-toggle{display:none}
+.hamburger{display:none;cursor:pointer}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:.2s}
+@media (max-width:860px){
+  .hamburger{display:block}
+  .nav-links{position:fixed;inset:64px 0 auto 0;background:rgba(12,12,14,.98);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:grid;gap:1rem;padding:1rem 1.2rem;transform:translateY(-120%);transition:.25s}
+  #nav-toggle:checked ~ .nav-links{transform:translateY(0)}
+}
+/* Hero background with included assets */
+.hero{position:relative;min-height:66vh;display:grid;place-items:center;overflow:hidden}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;opacity:.38;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.75)),
+    image-set(url('/assets/background.avif') type('image/avif'),
+              url('/assets/background.webp') type('image/webp'),
+              url('/assets/background.jpg') type('image/jpeg'));
+  background-size:cover;background-position:center;
+}
+.hero-inner{padding:3.2rem 0}
+.hero-copy h1{font-family:'Playfair Display', serif;font-weight:700;font-size:clamp(2.4rem,5vw,4.5rem);line-height:1.04;margin:0 0 .6rem;text-shadow:0 8px 28px #0008}
 .hero-copy h1 span{color:var(--gold)}
-.hero-copy p{color:var(--muted);max-width:60ch}
+.hero-copy p{color:var(--muted);max-width:64ch}
 .hero .cta{display:flex;gap:.8rem;margin:1rem 0}
-.hero .meta{margin-top:.6rem;color:#cfcfd6;font-size:.95rem}
-
+.hero .meta{margin-top:.6rem;color:#d5d8e0;font-size:.95rem}
 /* Sections */
-.sections{padding:2.2rem 0}
+.sections{padding:2.4rem 0}
 .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.1rem}
+.card{background:linear-gradient(180deg,#16171b,#101114);border:1px solid var(--line);border-radius:18px;padding:1.2rem;box-shadow:0 10px 24px #0006;transition:transform .18s ease, box-shadow .18s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 18px 38px #0007}
 .card h2{font-family:'Playfair Display', serif;margin:.2rem 0 .4rem}
-.feature-slab .slab{background:linear-gradient(160deg,var(--brand),var(--brand-700));border-radius:22px;padding:1.4rem;border:1px solid #0003;box-shadow:0 10px 28px rgba(0,0,0,.35)}
+.feature-slab .slab{background:linear-gradient(160deg,var(--brand),var(--brand-700));border-radius:24px;padding:1.6rem;border:1px solid #0003;box-shadow:0 14px 36px rgba(0,0,0,.35)}
 .feature-slab h2{font-family:'Playfair Display', serif;margin:.2rem 0 1rem}
 .menu-pills{list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-wrap:wrap;gap:.6rem}
-.menu-pills li{background:#ffffff12;border:1px solid #ffffff26;color:#fff;padding:.45rem .7rem;border-radius:999px}
+.menu-pills li{background:#ffffff17;border:1px solid #ffffff2a;color:#fff;padding:.5rem .8rem;border-radius:999px}
 .locations{padding:1.6rem 0 2.6rem}
 .grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:1.2rem}
 .menu-list{line-height:1.55}
 .note{color:var(--muted);font-size:.95rem}
-
 /* Footer */
 .site-footer{border-top:1px solid var(--line);margin-top:2rem;padding:1.2rem 0}
 .footer-grid{display:grid;grid-template-columns:2fr 1.2fr 1.2fr;gap:1rem}
-.hours{list-style:none;padding:0;margin:.4rem 0;color:#cfcfd6}
+.hours{list-style:none;padding:0;margin:.4rem 0;color:#cfd3da}
 .tiny{color:#9aa0a6;font-size:.88rem}
-
-/* Map button */
 .map{display:inline-block;padding:.6rem .9rem;background:#15161a;border:1px solid var(--line);border-radius:12px}
-
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){*{transition:none !important}}
 /* Responsive */
 @media (max-width: 920px){
   .cards-3, .grid-2, .footer-grid{grid-template-columns:1fr}
-  .hero{min-height:56vh}
+  .hero{min-height:60vh}
 }
