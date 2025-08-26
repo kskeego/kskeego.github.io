@@ -105,3 +105,26 @@ a:hover{opacity:.9;text-decoration:underline}
 
 /* Hours list */
 .hours{list-style:none;padding:0;margin:.3rem 0}
+
+
+/* FAQ summary scoping */
+.faq-block summary{cursor:pointer;list-style:none}
+.faq-block summary::-webkit-details-marker{display:none}
+.faq-block details{overflow:hidden}
+
+
+/* Mobile nav: hide checkbox and style hamburger */
+#nav-toggle{position:absolute;left:-9999px}
+.hamburger{display:none;cursor:pointer;padding:.25rem .4rem;border-radius:8px}
+.hamburger span{display:block;width:26px;height:2px;background:#2a2f36;margin:6px 0;transition:transform .2s ease,opacity .2s ease}
+
+/* Desktop nav */
+.nav .nav-links{display:flex;align-items:center}
+
+/* Mobile layout */
+@media(max-width:900px){
+  .hamburger{display:block}
+  .nav{position:relative}
+  .nav .nav-links{display:none;position:absolute;right:0;top:56px;background:var(--header);border:1px solid var(--line);border-radius:12px;padding:.6rem;flex-direction:column;gap:.4rem;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+  #nav-toggle:checked ~ .nav-links{display:flex}
+}
