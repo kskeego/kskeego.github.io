@@ -3,14 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dietary Options | Woodward Pizza</title>
-  <meta name="description" content="Learn about vegan, dairy-free, and gluten-free options at Woodward Pizza in Edmond & OKC.">
+  <title>Dietary Options | Woodward Pizza – Vegan, Dairy‑Free & Gluten‑Free</title>
+  <meta name="description" content="Vegan cheese, plant‑based meats, dairy‑free options, and a house‑developed gluten‑free dough — plus thoughtful kitchen practices.">
+  <link rel="canonical" href="https://woodwardpizza.com/dietary.html">
+  <meta property="og:site_name" content="Woodward Pizza">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dietary Options | Woodward Pizza – Vegan, Dairy‑Free & Gluten‑Free">
+  <meta property="og:description" content="Vegan cheese, plant‑based meats, dairy‑free options, and a house‑developed gluten‑free dough — plus thoughtful kitchen practices.">
+  <meta property="og:image" content="/assets/og-dietary.jpg">
+  <meta property="og:url" content="https://woodwardpizza.com/dietary.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dietary Options | Woodward Pizza – Vegan, Dairy‑Free & Gluten‑Free">
+  <meta name="twitter:description" content="Vegan cheese, plant‑based meats, dairy‑free options, and a house‑developed gluten‑free dough — plus thoughtful kitchen practices.">
+  <meta name="twitter:image" content="/assets/og-dietary.jpg">
   <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
 </head>
 <body>
+
 <header class="site-header">
   <div class="container nav">
-    <a class="logo" href="/" aria-label="Woodward Pizza Home"><img src="/assets/logo.png" alt="Woodward Pizza logo" width="220" /></a>
+    <a class="logo" href="/" aria-label="Woodward Pizza Home"><img src="/assets/logo.png" alt="Woodward Pizza logo" width="220" height="auto" /></a>
+    <input id="nav-toggle" type="checkbox" aria-label="Open menu">
+    <label for="nav-toggle" class="hamburger" aria-hidden="true"><span></span><span></span><span></span></label>
     <nav class="nav-links">
       <a href="/menu.html">Menu</a>
       <a href="/about.html">About</a>
@@ -19,16 +34,37 @@
       <a href="/areas.html">OKC Metro</a>
       <a href="/origin.html">Origin Story</a>
       <a href="/faq.html">FAQ</a>
-      <a class="btn" href="https://order.toasttab.com/online/woodwardpizza" target="_blank">Order Online</a>
+      <a class="btn" href="https://order.toasttab.com/online/woodwardpizza" target="_blank" rel="noopener">Order Online</a>
     </nav>
   </div>
 </header>
-<main class='container sections'><h1>Dietary Options</h1><p>We work to make everyone feel welcome at the table. Explore our vegan, dairy-free, and gluten-free choices.</p>
-<section class="faq-snippet">
+<section class="container sections">
+  <h1>Dietary Options</h1>
+  <h2>Vegan</h2>
+  <p>We never want anyone to feel left out because of their diet. We offer <strong>vegan cheese</strong>, <strong>plant‑based meats</strong>, and fresh in‑house cut veggies. Look for our occasional <strong>Vegan Pizza of the Month</strong>.</p>
+
+  <h2>Dairy‑Free</h2>
+  <p>We offer <strong>dairy‑free cheese</strong> and can customize many pizzas so everyone at the table can enjoy a great slice together. (Our daughter had a minor dairy allergy as a newborn — we get it.)</p>
+
+  <h2>Gluten‑Free</h2>
+  <p>We spent 9+ months developing a gluten‑free dough that’s light, fluffy, crisp, and deep — designed to be almost indistinguishable from our standard Detroit‑style pizza. We use a separate mixer and pans, and we make GF dough later in the day so flour dust has time to settle. While we can’t guarantee a flour‑free environment, we do our very best to minimize cross‑contact.</p>
+
+  <h2>Allergen Note</h2>
+  <p>Our kitchen handles wheat, dairy, eggs, nuts, and soy. Please tell us about any allergies so we can do our best to accommodate.</p>
+</section>
+<section class="container sections page-faq">
   <h2>Dietary FAQs</h2>
-  <details><summary><strong>Do you have gluten-free options?</strong></summary><p>Yes — our gluten-free dough was developed over 9 months to taste nearly identical to our Detroit-style pizza. <a href='/faq.html'>Full gluten-free info →</a></p></details>
-  <details><summary><strong>Do you have dairy-free options?</strong></summary><p>Yes — we offer dairy-free cheese and toppings, with rotating dairy-free gelato flavors too. <a href='/faq.html'>Read more →</a></p></details>
-  <details><summary><strong>Do you have vegan options?</strong></summary><p>Yes — with vegan cheese, plant-based meats, fresh-cut veggies, and even the occasional vegan pizza of the month. <a href='/faq.html'>See details →</a></p></details>
+  <div class="faq-block">
+    <details open><summary><strong>Do you have vegan options?</strong></summary>
+      <p>Yes — vegan cheese, plant‑based meats, and fresh veggies. We even do an occasional Vegan Pizza of the Month.</p>
+    </details>
+    <details><summary><strong>Do you have dairy‑free options?</strong></summary>
+      <p>Yes — dairy‑free cheese and customizable pizzas so everyone can enjoy a great slice together.</p>
+    </details>
+    <details><summary><strong>Do you have gluten‑free options?</strong></summary>
+      <p>Yes — a house‑developed gluten‑free dough and extra kitchen precautions to reduce cross‑contact.</p>
+    </details>
+  </div>
 </section>
 
 <footer class="site-footer">
@@ -39,10 +75,21 @@
       <p><a href="tel:+14057574992">(405) 757-4992</a></p>
     </div>
     <div>
-      <strong>Order</strong>
-      <p><a href="https://order.toasttab.com/online/woodwardpizza" class="btn">Order Online</a></p>
+      <strong>Hours</strong>
+      <ul class="hours">
+        <li>Sun 11:00am – 9:00pm</li>
+        <li>Mon–Thu 11:00am – 10:00pm</li>
+        <li>Fri–Sat 11:00am – 11:00pm</li>
+      </ul>
+      <p class="tiny">Happy Hour: Mon–Fri 2:00–6:00pm & 8:30–10:00pm</p>
+    </div>
+    <div>
+      <strong>Follow</strong>
+      <p><a href="https://www.instagram.com/woodwardpizza/" target="_blank" rel="noopener">Instagram</a> • <a href="https://www.facebook.com/WoodwardPizza/" target="_blank" rel="noopener">Facebook</a></p>
+      <p><a class="btn" href="https://order.toasttab.com/online/woodwardpizza" target="_blank" rel="noopener">Order Online</a></p>
     </div>
   </div>
   <p class="tiny container">© 2025 Woodward Pizza.</p>
 </footer>
+<script src="/assets/script.js" defer></script>
 </body></html>

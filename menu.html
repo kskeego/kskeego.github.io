@@ -3,14 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Menu | Woodward Pizza</title>
-  <meta name="description" content="Explore our Detroit-style pizzas, appetizers, salads, and gelato. Lunch specials and slices available.">
+  <title>Menu | Woodward Pizza – Detroit‑Style Squares, Bar & Gelato</title>
+  <meta name="description" content="Explore our Detroit‑style pizza menu, cocktails, beer, and gelato. Lunch specials and slices weekdays 11am–2pm.">
+  <link rel="canonical" href="https://woodwardpizza.com/menu.html">
+  <meta property="og:site_name" content="Woodward Pizza">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Menu | Woodward Pizza – Detroit‑Style Squares, Bar & Gelato">
+  <meta property="og:description" content="Explore our Detroit‑style pizza menu, cocktails, beer, and gelato. Lunch specials and slices weekdays 11am–2pm.">
+  <meta property="og:image" content="/assets/og-menu.jpg">
+  <meta property="og:url" content="https://woodwardpizza.com/menu.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Menu | Woodward Pizza – Detroit‑Style Squares, Bar & Gelato">
+  <meta name="twitter:description" content="Explore our Detroit‑style pizza menu, cocktails, beer, and gelato. Lunch specials and slices weekdays 11am–2pm.">
+  <meta name="twitter:image" content="/assets/og-menu.jpg">
   <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
 </head>
 <body>
+
 <header class="site-header">
   <div class="container nav">
-    <a class="logo" href="/" aria-label="Woodward Pizza Home"><img src="/assets/logo.png" alt="Woodward Pizza logo" width="220" /></a>
+    <a class="logo" href="/" aria-label="Woodward Pizza Home"><img src="/assets/logo.png" alt="Woodward Pizza logo" width="220" height="auto" /></a>
+    <input id="nav-toggle" type="checkbox" aria-label="Open menu">
+    <label for="nav-toggle" class="hamburger" aria-hidden="true"><span></span><span></span><span></span></label>
     <nav class="nav-links">
       <a href="/menu.html">Menu</a>
       <a href="/about.html">About</a>
@@ -19,15 +34,29 @@
       <a href="/areas.html">OKC Metro</a>
       <a href="/origin.html">Origin Story</a>
       <a href="/faq.html">FAQ</a>
-      <a class="btn" href="https://order.toasttab.com/online/woodwardpizza" target="_blank">Order Online</a>
+      <a class="btn" href="https://order.toasttab.com/online/woodwardpizza" target="_blank" rel="noopener">Order Online</a>
     </nav>
   </div>
 </header>
-<main class='container sections'><h1>Menu</h1><p>Explore our Detroit-style pizzas, salads, sides, desserts, and drinks.</p>
-<section class="faq-snippet">
+<section class="container sections">
+  <h1>Menu</h1>
+  <div class="menu-list"><div class='menu-item'><h3>Trippple XXXtra Pepperoni</h3><span>Cupping pepperoni stacked high on our square pie.</span></div>
+<div class='menu-item'><h3>Spicy Hawaiian</h3><span>Ham, pineapple, jalapeño — sweet heat, Detroit‑style.</span></div>
+<div class='menu-item'><h3>Margherita Square</h3><span>Fresh mozz, basil, post‑bake warm sauce.</span></div>
+<div class='menu-item'><h3>Veggie</h3><span>Mushroom, bell pepper, onion, olive — easily vegan on request.</span></div>
+<div class='menu-item'><h3>Meatball Square</h3><span>House meatballs, red onion, ricotta dollops.</span></div></div>
+  <p class="note">Lunch Special: Mon–Fri 11:00am–2:00pm • Slices available • Full bar & gelato</p>
+</section>
+<section class="container sections page-faq">
   <h2>Menu FAQs</h2>
-  <details><summary><strong>Do you have a lunch special?</strong></summary><p>Yes — weekdays 11am to 2pm, with options like pizza squares, slice and salad, or salad and meatballs. <a href='/faq.html'>See details →</a></p></details>
-  <details><summary><strong>Do you sell pizza by the slice?</strong></summary><p>Yes — Detroit-style pizza by the slice is available at lunch. The slice of the day changes daily. <a href='/faq.html'>More info →</a></p></details>
+  <div class="faq-block">
+    <details><summary><strong>Do you have a lunch special?</strong></summary>
+      <p>Yes — weekdays 11:00am–2:00pm with options like a classic square, rotating slice of the day, or slice + half salad.</p>
+    </details>
+    <details><summary><strong>Do you sell pizza by the slice?</strong></summary>
+      <p>Yes — Monday–Friday 11:00am–2:00pm. The slice of the day changes so you can try something new.</p>
+    </details>
+  </div>
 </section>
 
 <footer class="site-footer">
@@ -38,10 +67,21 @@
       <p><a href="tel:+14057574992">(405) 757-4992</a></p>
     </div>
     <div>
-      <strong>Order</strong>
-      <p><a href="https://order.toasttab.com/online/woodwardpizza" class="btn">Order Online</a></p>
+      <strong>Hours</strong>
+      <ul class="hours">
+        <li>Sun 11:00am – 9:00pm</li>
+        <li>Mon–Thu 11:00am – 10:00pm</li>
+        <li>Fri–Sat 11:00am – 11:00pm</li>
+      </ul>
+      <p class="tiny">Happy Hour: Mon–Fri 2:00–6:00pm & 8:30–10:00pm</p>
+    </div>
+    <div>
+      <strong>Follow</strong>
+      <p><a href="https://www.instagram.com/woodwardpizza/" target="_blank" rel="noopener">Instagram</a> • <a href="https://www.facebook.com/WoodwardPizza/" target="_blank" rel="noopener">Facebook</a></p>
+      <p><a class="btn" href="https://order.toasttab.com/online/woodwardpizza" target="_blank" rel="noopener">Order Online</a></p>
     </div>
   </div>
   <p class="tiny container">© 2025 Woodward Pizza.</p>
 </footer>
+<script src="/assets/script.js" defer></script>
 </body></html>
