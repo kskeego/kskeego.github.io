@@ -1,11 +1,7 @@
-# Woodward Pizza – WCAG 2.2 Accessibility Mapping
-(Generated for current build)
-
-See key criteria coverage:
-- Landmarks, skip link, focus visible
-- Keyboard operable nav/menu
-- Contrast AA for text and controls
-- Map iframe titled
+# WCAG 2.2 Summary
+- Landmarks: header/nav/main/footer
+- Skip link + focus-visible outlines
+- Contrast AA on dark theme
+- Mobile: ≥44px tap targets, hamburger ARIA
+- Map iframe has title
 - Reduced motion respected
-- Tap targets ≥44px on mobile
-- Clear link purposes and headings
