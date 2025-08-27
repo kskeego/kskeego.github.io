@@ -4,18 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About • Woodward Pizza</title>
-  <meta name="description" content="About Woodward Pizza — our story and what makes our Detroit‑style pies special." />
+  <meta name="description" content="From Detroit roots to Edmond — our story and why we serve authentic Detroit‑style pizza." />
   <link rel="canonical" href="https://kskeego.github.io/about.html" />
   <meta property="og:title" content="About • Woodward Pizza" />
-  <meta property="og:description" content="About Woodward Pizza — our story and what makes our Detroit‑style pies special." />
+  <meta property="og:description" content="From Detroit roots to Edmond — our story and why we serve authentic Detroit‑style pizza." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kskeego.github.io/about.html" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preload" href="/assets/css/site.css" as="style" />
-  <link rel="stylesheet" href="/assets/css/site.css" />
-  <script defer src="/assets/js/site.js"></script>
   <script type="application/ld+json">
-  {
+{
   "@context": "https://schema.org",
   "@type": "Restaurant",
   "name": "Woodward Pizza",
@@ -29,39 +26,15 @@
     "addressRegion": "OK",
     "addressCountry": "US"
   },
-  "url": "https://kskeego.github.io/about.html",
-  "sameAs": [],
-  "hasMenu": "https://kskeego.github.io/menu.html"
+  "url": "https://kskeego.github.io/about.html"
 }
-  </script>
+</script>
 </head>
-
-
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
-<header role="banner">
-  <div class="container navbar">
-    <a class="logo" href="/index.html" aria-label="Woodward Pizza home">Woodward Pizza</a>
-    <nav aria-label="Primary">
-      <ul>
-        <li><a href="/menu.html">Menu</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/origin.html">Detroit-Style Origin</a></li>
-        <li><a href="/faq.html">FAQs</a></li>
-        <li><a href="/dietary.html">Dietary</a></li>
-        <li><a href="/areas.html">Service Areas</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<main id="main" class="container" tabindex="-1">
+<header id="site-header"></header>
+<main id="main" tabindex="-1" class="container">
 
   <h1>About Woodward Pizza From Detroit Roots to Edmond</h1>
-  <!--
-    TODO (Kyle): Paste the EXACT finalized About page text we approved.
-    Do not paraphrase. Place it inside the <article> below.
-  -->
   <article aria-label="About Woodward Pizza">
     <p>I was born and raised in metro Detroit and lived all over the tri-county area. Like many Detroiters, I grew up on square pizza—crispy-edged, pan-baked, with that unforgettable caramelized frico. I started making pizza in 2002 while working at local pizzerias, and even as I moved around for school and work, I never stopped experimenting with dough, sauce, and toppings.</p>
     <p>After earning my engineering degree, I spent several years in the auto industry, working in Detroit, Canada, and St. Louis. (Side note: St. Louis-style pizza is the worst style of pizza I’ve ever eaten—hot garbage compared to Detroit’s square pies.) When the Great Recession hit, I left Detroit and the auto industry to work in the energy sector, which took me to West Virginia, Tulsa, Pittsburgh, Denver, Houston, and eventually Oklahoma City. In all of those places, I could never find the pizza I grew up with. At best, I’d come across Sicilian slices, but they were always missing that signature caramelized edge.</p>
@@ -81,12 +54,44 @@
   </article>
 
 </main>
-<footer role="contentinfo">
-  <div class="container">
-    <p><strong>Woodward Pizza</strong> — Authentic Detroit‑style pizza in Edmond, OK.</p>
-    <p><small>© 2025 Woodward Pizza. All rights reserved.</small></p>
-  </div>
-</footer>
+<footer id="site-footer"></footer>
+<script>
+(function() {
+  try {
+    fetch('/index.html', {cache:'no-store'}).then(function(r){return r.text()}).then(function(txt){
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(txt, 'text/html');
+
+      // Bring over stylesheet links
+      var existingHrefs = Array.from(document.querySelectorAll('link[rel="stylesheet"]')).map(function(l){return l.href});
+      doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link){
+        if (!existingHrefs.includes(link.href)) {
+          document.head.appendChild(link.cloneNode(true));
+        }
+      });
+      // Copy inline <style> tags if any
+      doc.querySelectorAll('style').forEach(function(styleTag){
+        if (styleTag.textContent && styleTag.textContent.trim().length > 0) {
+          document.head.appendChild(styleTag.cloneNode(true));
+        }
+      });
+      // Copy theme-related attributes
+      var srcHTML = doc.documentElement;
+      var dstHTML = document.documentElement;
+      ['data-theme','class'].forEach(function(attr){
+        var v = srcHTML.getAttribute(attr);
+        if (v && !dstHTML.getAttribute(attr)) { dstHTML.setAttribute(attr, v); }
+      });
+      // Clone header/footer
+      var srcHeader = doc.querySelector('header');
+      var dstHeader = document.getElementById('site-header');
+      if (srcHeader && dstHeader) dstHeader.replaceWith(srcHeader.cloneNode(true));
+      var srcFooter = doc.querySelector('footer');
+      var dstFooter = document.getElementById('site-footer');
+      if (srcFooter && dstFooter) dstFooter.replaceWith(srcFooter.cloneNode(true));
+    }).catch(function(e){ console.warn('Style/header clone failed:', e); });
+  } catch (e) { console.warn('Init failed:', e); }
+})();
+</script>
 </body>
 </html>
-
