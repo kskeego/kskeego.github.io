@@ -2,7 +2,6 @@
 document.addEventListener('DOMContentLoaded', function(){
   const toggle = document.getElementById('nav-toggle');
   const label = document.querySelector('label[for="nav-toggle"]');
-  const nav = document.getElementById('site-menu');
   const bar = document.getElementById('order-now-bar');
 
   function syncNav(){
