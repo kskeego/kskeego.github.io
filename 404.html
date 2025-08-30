@@ -76,4 +76,35 @@ fbq('track', 'PageView');
 .footer-nap a{text-decoration:underline}
 .footer-nap p{margin:.2rem 0}
 </style></footer><script src="/assets/js/consent-unifier.js"></script>
-</body></html>
+<!-- GA4 events (consent-aware) -->
+<script data-consent="analytics" type="text/plain">
+  (function () {
+    function onReady(fn){ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',fn);} else {fn();} }
+    function track(selector, eventName, getParams){
+      onReady(function(){
+        document.querySelectorAll(selector).forEach(function(el){
+          el.addEventListener('click', function(){
+            if (typeof gtag === 'function') {
+              var params = (getParams && getParams(el)) || {};
+              params.event_category = params.event_category || 'engagement';
+              params.event_label = params.event_label || location.pathname;
+              gtag('event', eventName, params);
+            }
+          });
+        });
+      });
+    }
+    // Order Online (to Menu)
+    track('a[href="/menu.html"], a[href$="menu.html"]', 'order_click');
+    // Rewards Signup
+    track('a[href*="myguestaccount.com/guest/enroll"]', 'rewards_signup');
+    // Gift Card Purchase
+    track('a[href*="myguestaccount.com/guest/e-gift-cards"]', 'giftcard_purchase');
+    // Phone click tracking
+    track('a[href^="tel:"]', 'click_to_call');
+    // Social clicks
+    track('a[href*="facebook.com/WoodwardPizza"], a[href*="instagram.com/woodwardpizza"]', 'social_click', function(el){
+      return {social_target: el.href};
+    });
+  })();
+</script></body></html>
