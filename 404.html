@@ -49,7 +49,14 @@ fbq('track', 'PageView');
 <noscript>
 <img decoding="async" fetchpriority="high" height="1" loading="lazy" src="https://www.facebook.com/tr?id=1089649698467202&amp;ev=PageView&amp;noscript=1" style="display:none" width="1"/>
 </noscript>
-<!-- End Meta Pixel Code --><link as="style" href="/assets/styles.css" rel="preload"/><noscript><link href="/assets/styles.css" media="print" onload="this.media='all'" rel="stylesheet"/></noscript><link as="style" href="/assets/css/header-transparency-fix.css" rel="preload"/><noscript><link href="/assets/css/header-transparency-fix.css" media="print" onload="this.media='all'" rel="stylesheet"/></noscript><link as="image" href="https://www.facebook.com/tr?id=1089649698467202&amp;ev=PageView&amp;noscript=1" rel="preload"/><link href="/assets/fonts/fonts.css" rel="stylesheet"/><link as="font" crossorigin="anonymous" href="/fonts/Inter-Variable.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="anonymous" href="/fonts/BebasNeue-Regular.woff2" rel="preload" type="font/woff2"/><link as="style" href="/assets/styles.css" rel="preload"/><noscript><link href="/assets/styles.css" rel="stylesheet"/></noscript><link as="style" href="/assets/css/header-transparency-fix.css" rel="preload"/><noscript><link href="/assets/css/header-transparency-fix.css" rel="stylesheet"/></noscript><link as="image" href="/assets/logo.png" rel="preload"/></head><body><a class="skip-link" href="#main">Skip to main content</a><div aria-label="Quick order bar" class="orderbar" id="order-now-bar" role="region"><div class="inner"><strong>Hungry?</strong><a aria-label="Order Woodward Pizza now" class="btn" href="https://order.toasttab.com/online/woodwardpizza?utm_source=website&amp;utm_medium=cta&amp;utm_campaign=order_online" rel="noopener" target="_blank">Order Now</a></div></div><header class="site-header" role="banner">
+<!-- End Meta Pixel Code --><link as="style" href="/assets/styles.css" rel="preload"/><noscript><link href="/assets/styles.css" media="print" onload="this.media='all'" rel="stylesheet"/></noscript><link as="style" href="/assets/css/header-transparency-fix.css" rel="preload"/><noscript><link href="/assets/css/header-transparency-fix.css" media="print" onload="this.media='all'" rel="stylesheet"/></noscript><link as="image" href="https://www.facebook.com/tr?id=1089649698467202&amp;ev=PageView&amp;noscript=1" rel="preload"/><link href="/assets/fonts/fonts.css" rel="stylesheet"/><link as="font" crossorigin="anonymous" href="/fonts/Inter-Variable.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="anonymous" href="/fonts/BebasNeue-Regular.woff2" rel="preload" type="font/woff2"/><link as="style" href="/assets/styles.css" rel="preload"/><noscript><link href="/assets/styles.css" rel="stylesheet"/></noscript><link as="style" href="/assets/css/header-transparency-fix.css" rel="preload"/><noscript><link href="/assets/css/header-transparency-fix.css" rel="stylesheet"/></noscript><link as="image" href="/assets/logo.png" rel="preload"/><style>
+/* CLS guard */
+.hero{min-height:clamp(320px,45vh,560px)}
+/* Ensure media in hero preserves space before load */
+.hero img{display:block;max-width:100%;height:auto}
+/* Order bar animation via transform to avoid layout thrash */
+#order-now-bar{will-change:transform}
+</style></head><body><a class="skip-link" href="#main">Skip to main content</a><div aria-label="Quick order bar" class="orderbar" id="order-now-bar" role="region"><div class="inner"><strong>Hungry?</strong><a aria-label="Order Woodward Pizza now" class="btn" href="https://order.toasttab.com/online/woodwardpizza?utm_source=website&amp;utm_medium=cta&amp;utm_campaign=order_online" rel="noopener" target="_blank">Order Now</a></div></div><header class="site-header" role="banner">
 <div class="container nav">
 <a class="logo" href="/"><picture><source srcset="/assets/logo.png.webp" type="image/webp"/><img alt="Woodward Pizza logo" decoding="async" fetchpriority="high" height="60" src="/assets/logo.png" width="220"/></picture></a>
 <a aria-label="Order Woodward Pizza online" class="btn order-now-mobile" href="https://order.toasttab.com/online/woodwardpizza?utm_source=website&amp;utm_medium=cta&amp;utm_campaign=order_online" rel="noopener" target="_blank">Order Now</a>
@@ -117,24 +124,4 @@ fbq('track', 'PageView');
       return {social_target: el.href};
     });
   })();
-</script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));}</script><script>
-/* a11y nav toggle */
-(function(){
-  var btn = document.querySelector('button.hamburger[aria-controls]');
-  if(!btn) return;
-  var menuId = btn.getAttribute('aria-controls');
-  var menu = document.getElementById(menuId);
-  if(!menu) return;
-  function setState(expanded){
-    btn.setAttribute('aria-expanded', expanded);
-    if(expanded){ menu.removeAttribute('hidden'); }
-    else{ menu.setAttribute('hidden',''); }
-  }
-  setState(btn.getAttribute('aria-expanded') === 'true');
-  btn.addEventListener('click', function(){
-    setState(btn.getAttribute('aria-expanded') !== 'true');
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){ setState(false); btn.focus(); }
-  });
-})();</script></body></html>
+</script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));}</script></body></html>

@@ -49,7 +49,14 @@ fbq('track', 'PageView');
 <noscript>
 <img decoding="async" fetchpriority="high" height="1" src="https://www.facebook.com/tr?id=1089649698467202&amp;ev=PageView&amp;noscript=1" style="display:none" width="1"/>
 </noscript>
-<!-- End Meta Pixel Code --><link as="style" href="/assets/css/header-transparency-fix.css" rel="preload"/><noscript><link href="/assets/css/header-transparency-fix.css" media="print" onload="this.media='all'" rel="stylesheet"/></noscript><link as="image" href="https://www.facebook.com/tr?id=1089649698467202&amp;ev=PageView&amp;noscript=1" rel="preload"/><link href="/assets/fonts/fonts.css" rel="stylesheet"/><link as="font" crossorigin="anonymous" href="/fonts/Inter-Variable.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="anonymous" href="/fonts/BebasNeue-Regular.woff2" rel="preload" type="font/woff2"/><link as="style" href="/assets/css/header-transparency-fix.css" rel="preload"/><noscript><link href="/assets/css/header-transparency-fix.css" rel="stylesheet"/></noscript></head>
+<!-- End Meta Pixel Code --><link as="style" href="/assets/css/header-transparency-fix.css" rel="preload"/><noscript><link href="/assets/css/header-transparency-fix.css" media="print" onload="this.media='all'" rel="stylesheet"/></noscript><link as="image" href="https://www.facebook.com/tr?id=1089649698467202&amp;ev=PageView&amp;noscript=1" rel="preload"/><link href="/assets/fonts/fonts.css" rel="stylesheet"/><link as="font" crossorigin="anonymous" href="/fonts/Inter-Variable.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="anonymous" href="/fonts/BebasNeue-Regular.woff2" rel="preload" type="font/woff2"/><link as="style" href="/assets/css/header-transparency-fix.css" rel="preload"/><noscript><link href="/assets/css/header-transparency-fix.css" rel="stylesheet"/></noscript><style>
+/* CLS guard */
+.hero{min-height:clamp(320px,45vh,560px)}
+/* Ensure media in hero preserves space before load */
+.hero img{display:block;max-width:100%;height:auto}
+/* Order bar animation via transform to avoid layout thrash */
+#order-now-bar{will-change:transform}
+</style></head>
 <body>
 <header id="site-header"></header>
 <main class="container" id="main" tabindex="-1">
@@ -169,25 +176,5 @@ fbq('track', 'PageView');
       return {social_target: el.href};
     });
   })();
-</script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));}</script><script>
-/* a11y nav toggle */
-(function(){
-  var btn = document.querySelector('button.hamburger[aria-controls]');
-  if(!btn) return;
-  var menuId = btn.getAttribute('aria-controls');
-  var menu = document.getElementById(menuId);
-  if(!menu) return;
-  function setState(expanded){
-    btn.setAttribute('aria-expanded', expanded);
-    if(expanded){ menu.removeAttribute('hidden'); }
-    else{ menu.setAttribute('hidden',''); }
-  }
-  setState(btn.getAttribute('aria-expanded') === 'true');
-  btn.addEventListener('click', function(){
-    setState(btn.getAttribute('aria-expanded') !== 'true');
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){ setState(false); btn.focus(); }
-  });
-})();</script></body>
+</script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));}</script></body>
 </html>
