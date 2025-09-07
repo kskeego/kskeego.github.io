@@ -142,3 +142,19 @@ button.hamburger:focus-visible{outline:2px solid var(--brand-2, #f2a900);outline
 
 /* ensure [hidden] truly hides if any resets exist */
 [hidden]{display:none !important}
+
+
+/* --- force hamburger visible on dark header --- */
+header button.hamburger, .site-header button.hamburger{ color:#fff !important }
+header .hamburger span, .site-header .hamburger span{ background: currentColor !important }
+
+/* stronger open rule to win over any earlier display:none */
+@media (max-width: 900px){
+  header #site-menu.open, header .nav .nav-links.open{ display:flex !important }
+}
+
+
+/* --- hamburger color to brand red --- */
+header button.hamburger, .site-header button.hamburger{ color: var(--brand) !important; }
+header .hamburger span, .site-header .hamburger span{ background: currentColor !important; }
+button.hamburger:focus-visible{ outline: 2px solid currentColor; outline-offset: 2px; }
