@@ -54,7 +54,7 @@ fbq('track', 'PageView');
 <a class="logo" href="/"><picture><source srcset="/assets/logo.png.webp" type="image/webp"/><img alt="Woodward Pizza logo" decoding="async" fetchpriority="high" height="60" src="/assets/logo.png" width="220"/></picture></a>
 <a aria-label="Order Woodward Pizza online" class="btn order-now-mobile" href="https://order.toasttab.com/online/woodwardpizza?utm_source=website&amp;utm_medium=cta&amp;utm_campaign=order_online" rel="noopener" target="_blank">Order Now</a>
 <input aria-expanded="false" aria-label="Open menu" id="nav-toggle" role="switch" type="checkbox"/>
-<button aria-controls="site-menu" aria-expanded="false" aria-haspopup="menu" aria-label="Toggle navigation" class="hamburger" type="button"><span></span><span></span><span></span></button>
+<label aria-controls="site-menu" aria-expanded="false" aria-label="Toggle navigation" class="hamburger" for="nav-toggle"><span></span><span></span><span></span></label>
 <nav aria-label="Primary" class="nav-links" id="site-menu" role="navigation">
 <a href="/">Home</a>
 <a href="/menu.html">Menu</a>
@@ -78,7 +78,7 @@ fbq('track', 'PageView');
 </section>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.woodwardpizza.com/"},{"@type":"ListItem","position":2,"name":"Dietary","item":"https://www.woodwardpizza.com/dietary.html"}]}</script><footer class="site-footer" role="contentinfo">
 <div class="container footer-grid">
-<div><h2>Visit</h2><p>119 W 2nd St Suite 100<br/>Edmond, OK 73003</p>
+<div><h3>Visit</h3><p>119 W 2nd St Suite 100<br/>Edmond, OK 73003</p>
 <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Woodward+Pizza+119+W+2nd+St+Suite+100+Edmond+OK+73003" rel="noopener" target="_blank">View on Google Maps</a></p></div>
 <div><h3>Hours</h3><ul class="hours">
 <li>Sun: 11:00 am – 9:00 pm</li>
@@ -126,37 +126,4 @@ fbq('track', 'PageView');
       return {social_target: el.href};
     });
   })();
-</script><script>
-/* a11y nav toggle */
-(function(){
-  var btn = document.querySelector('button.hamburger[aria-controls]');
-  if(!btn) return;
-  var menuId = btn.getAttribute('aria-controls');
-  var menu = document.getElementById(menuId);
-  if(!menu) return;
-
-  function setState(expanded){
-    btn.setAttribute('aria-expanded', expanded);
-    if(expanded){
-      menu.removeAttribute('hidden');
-    }else{
-      menu.setAttribute('hidden','');
-    }
-  }
-
-  // Initialize: if aria-expanded is true, ensure menu visible; else hide it (mobile)
-  setState(btn.getAttribute('aria-expanded') === 'true');
-
-  btn.addEventListener('click', function(){
-    var expanded = btn.getAttribute('aria-expanded') === 'true';
-    setState(!expanded);
-  });
-
-  // Optional: close on Escape
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){
-      setState(false);
-      btn.focus();
-    }
-  });
-})();</script></body></html>
+</script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));}</script></body></html>
