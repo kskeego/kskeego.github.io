@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head><link href="https://www.toasttab.com" rel="preconnect"/><link href="https://order.toasttab.com" rel="preconnect"/>
+<head><style>
+/* === Minimal critical paint === */
+:root { --bg:#0b0b0c; --text:#f4f4f5; --panel:#121214; }
+*{box-sizing:border-box} html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";}
+header,nav,main,section,footer{display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin-inline:auto;padding-inline:16px}
+.hero{padding:32px 0 12px}
+h1{font-weight:800;line-height:1.1;margin:8px 0}
+img[width][height]{height:auto}
+section[data-defer]{content-visibility:auto; contain-intrinsic-size: 1px 400px;}
+</style><link href="https://www.toasttab.com" rel="preconnect"/><link href="https://order.toasttab.com" rel="preconnect"/>
 <meta content="noindex, nofollow" name="robots"/><meta content="noindex, nofollow" name="googlebot"/><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Woodward Pizza — Table Selector</title>
 <meta content="Choose your Woodward Pizza table number to start ordering." name="description"/>
-
-
-
 <style>
     :root{
       --bg:#0b0b0c;--panel:#121214;--text:#f4f4f5;--muted:#cfcfd6;
@@ -80,9 +89,9 @@
 <a class="btn" href="https://order.toasttab.com/order-and-pay/woodwardpizza/PC3/">Table 47</a>
 </section>
 <hr class="sep"/>
-<section class="panel note"><p>If your experience was amazing today please leave us a review.<br/>If it wasn't perfect please let us know.</p></section>
+<section class="panel note" data-defer=""><p>If your experience was amazing today please leave us a review.<br/>If it wasn't perfect please let us know.</p></section>
 </main>
 <footer class="site"><div class="container"><p>© <span id="y"></span> Woodward Pizza. All rights reserved.</p></div></footer>
 <script>document.getElementById("y").textContent=new Date().getFullYear();</script>
-</body>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));}</script></body>
 </html>
