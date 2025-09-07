@@ -169,5 +169,38 @@ fbq('track', 'PageView');
       return {social_target: el.href};
     });
   })();
-</script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));}</script></body>
+</script><script>
+/* a11y nav toggle */
+(function(){
+  var btn = document.querySelector('button.hamburger[aria-controls]');
+  if(!btn) return;
+  var menuId = btn.getAttribute('aria-controls');
+  var menu = document.getElementById(menuId);
+  if(!menu) return;
+
+  function setState(expanded){
+    btn.setAttribute('aria-expanded', expanded);
+    if(expanded){
+      menu.removeAttribute('hidden');
+    }else{
+      menu.setAttribute('hidden','');
+    }
+  }
+
+  // Initialize: if aria-expanded is true, ensure menu visible; else hide it (mobile)
+  setState(btn.getAttribute('aria-expanded') === 'true');
+
+  btn.addEventListener('click', function(){
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    setState(!expanded);
+  });
+
+  // Optional: close on Escape
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      setState(false);
+      btn.focus();
+    }
+  });
+})();</script></body>
 </html>
