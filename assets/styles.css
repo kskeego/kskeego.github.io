@@ -37,9 +37,9 @@ a:hover{opacity:.95}
 .hamburger{display:none;cursor:pointer;padding:.25rem .4rem;border-radius:8px}
 .hamburger span{display:block;width:26px;height:2px;background:#fff;margin:6px 0;transition:transform .2s ease,opacity .2s ease}
 
-.hero{
+.hero{position:relative;
   position:relative; min-height:62vh; display:flex; align-items:center; text-align:center;
-  background-image: linear-gradient(180deg, rgba(10,11,14,.55), rgba(10,11,14,.6)), image-set(url('/assets/hero-1920w.webp') type('image/webp') 1x, url('/assets/hero-1920w.jpg') type('image/jpeg') 1x);
+  
   background-size: cover; background-position: center; background-repeat:no-repeat;
 }
 .hero .container{padding:5rem 0}
@@ -108,23 +108,28 @@ body.orderbar-visible .site-header{top:44px}
 
 /* Responsive hero background (generated) */
 @media (max-width: 1200px){
-  .hero{
-    background-image:
-      linear-gradient(180deg, rgba(10,11,14,.55), rgba(10,11,14,.75)),
-      image-set(url('/assets/hero-1440w.webp') type('image/webp') 1x, url('/assets/hero-1440w.jpg') type('image/jpeg') 1x);
+  .hero{position:relative;
+    
   }
 }
 @media (max-width: 900px){
-  .hero{
-    background-image:
-      linear-gradient(180deg, rgba(10,11,14,.55), rgba(10,11,14,.75)),
-      image-set(url('/assets/hero-1024w.webp') type('image/webp') 1x, url('/assets/hero-1024w.jpg') type('image/jpeg') 1x);
+  .hero{position:relative;
+    
   }
 }
 @media (max-width: 600px){
-  .hero{
-    background-image:
-      linear-gradient(180deg, rgba(10,11,14,.55), rgba(10,11,14,.75)),
-      image-set(url('/assets/hero-768w.webp') type('image/webp') 1x, url('/assets/hero-768w.jpg') type('image/jpeg') 1x);
+  .hero{position:relative;
+    
   }
 }
+
+/* Hero overlay for contrast (replaces gradient that was on background-image) */
+.hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(10,11,14,.55), rgba(10,11,14,.75));
+  pointer-events:none;
+  z-index:1;
+}
+.hero .hero-media{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; display:block;}
+.hero > *{position:relative; z-index:2;}
