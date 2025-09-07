@@ -187,4 +187,36 @@ fbq('track', 'PageView');
       return {social_target: el.href};
     });
   })();
-</script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));}</script></body></html><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Menu", "name": "Woodward Pizza Menu", "hasMenuSection": [{"@type": "MenuSection", "name": "Detroit-Style Square Pizzas", "hasMenuItem": [{"@type": "MenuItem", "name": "Pizza of the Month", "description": "Rotates monthly \u2014 see in-store or online ordering for current special."}, {"@type": "MenuItem", "name": "Detroiter Pepperoni", "description": "Natural casing pepperoni, mozzarella, seasoned ricotta, basil, Pecorino Romano, signature red sauce."}, {"@type": "MenuItem", "name": "Trippple XXXtra Pepperoni", "description": "Extra mozzarella and a heap of natural casing pepperoni with signature red sauce."}, {"@type": "MenuItem", "name": "Spicy Hawaiian", "description": "Ham, pineapple, bacon, jalape\u00f1os, red sauce, hot honey."}, {"@type": "MenuItem", "name": "Veggie", "description": "Mushroom, red onion, red bell pepper, black olive, tomato, fresh basil, red sauce."}, {"@type": "MenuItem", "name": "Vegan Buffalo Not Chicken", "description": "Vegan mozzarella, plant\u2011based not\u2011chicken, red onion, vegan ranch + buffalo (no red sauce)."}, {"@type": "MenuItem", "name": "White Pizza", "description": "Mozzarella, garlic oil, chicken, spinach, red pepper, ricotta, alfredo (no red sauce)."}, {"@type": "MenuItem", "name": "PBR (Pickle Bacon Ranch)", "description": "No red sauce \u2014 mozzarella, garlic oil, pickles, bacon, ranch."}, {"@type": "MenuItem", "name": "Sausage Supreme", "description": "Mozzarella, garlic oil, Italian sausage, seasoned ricotta, red peppers, red onion, red sauce."}, {"@type": "MenuItem", "name": "Spicy Dad Bod", "description": "Mozzarella, natural casing pepperoni, seasoned ricotta, Italian sausage, garlic oil, spicy vodka sauce."}]}, {"@type": "MenuSection", "name": "Dessert", "hasMenuItem": [{"@type": "MenuItem", "name": "Cinnamon Sticks", "description": "With house\u2011made orange icing (GF available)."}, {"@type": "MenuItem", "name": "Cannoli", "description": "Hand\u2011filled cannoli cream with mini chocolate chips."}]}]}</script>
+</script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));}</script><script>
+/* a11y nav toggle */
+(function(){
+  var btn = document.querySelector('button.hamburger[aria-controls]');
+  if(!btn) return;
+  var menuId = btn.getAttribute('aria-controls');
+  var menu = document.getElementById(menuId);
+  if(!menu) return;
+
+  function setState(expanded){
+    btn.setAttribute('aria-expanded', String(expanded));
+    menu.classList.toggle('open', !!expanded);
+    if(expanded){ menu.removeAttribute('hidden'); } else { menu.setAttribute('hidden',''); }
+  }
+
+  // Init
+  setState(btn.getAttribute('aria-expanded') === 'true');
+
+  // Click toggle
+  btn.addEventListener('click', function(){
+    setState(btn.getAttribute('aria-expanded') !== 'true');
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ setState(false); btn.focus(); }
+  });
+
+  // Keep desktop nav visible when resizing up
+  var desktop = window.matchMedia('(min-width: 901px)');
+  function sync(){ if(desktop.matches){ menu.removeAttribute('hidden'); menu.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } }
+  desktop.addEventListener('change', sync); sync();
+})();</script></body></html><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Menu", "name": "Woodward Pizza Menu", "hasMenuSection": [{"@type": "MenuSection", "name": "Detroit-Style Square Pizzas", "hasMenuItem": [{"@type": "MenuItem", "name": "Pizza of the Month", "description": "Rotates monthly \u2014 see in-store or online ordering for current special."}, {"@type": "MenuItem", "name": "Detroiter Pepperoni", "description": "Natural casing pepperoni, mozzarella, seasoned ricotta, basil, Pecorino Romano, signature red sauce."}, {"@type": "MenuItem", "name": "Trippple XXXtra Pepperoni", "description": "Extra mozzarella and a heap of natural casing pepperoni with signature red sauce."}, {"@type": "MenuItem", "name": "Spicy Hawaiian", "description": "Ham, pineapple, bacon, jalape\u00f1os, red sauce, hot honey."}, {"@type": "MenuItem", "name": "Veggie", "description": "Mushroom, red onion, red bell pepper, black olive, tomato, fresh basil, red sauce."}, {"@type": "MenuItem", "name": "Vegan Buffalo Not Chicken", "description": "Vegan mozzarella, plant\u2011based not\u2011chicken, red onion, vegan ranch + buffalo (no red sauce)."}, {"@type": "MenuItem", "name": "White Pizza", "description": "Mozzarella, garlic oil, chicken, spinach, red pepper, ricotta, alfredo (no red sauce)."}, {"@type": "MenuItem", "name": "PBR (Pickle Bacon Ranch)", "description": "No red sauce \u2014 mozzarella, garlic oil, pickles, bacon, ranch."}, {"@type": "MenuItem", "name": "Sausage Supreme", "description": "Mozzarella, garlic oil, Italian sausage, seasoned ricotta, red peppers, red onion, red sauce."}, {"@type": "MenuItem", "name": "Spicy Dad Bod", "description": "Mozzarella, natural casing pepperoni, seasoned ricotta, Italian sausage, garlic oil, spicy vodka sauce."}]}, {"@type": "MenuSection", "name": "Dessert", "hasMenuItem": [{"@type": "MenuItem", "name": "Cinnamon Sticks", "description": "With house\u2011made orange icing (GF available)."}, {"@type": "MenuItem", "name": "Cannoli", "description": "Hand\u2011filled cannoli cream with mini chocolate chips."}]}]}</script>

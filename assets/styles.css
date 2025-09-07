@@ -128,3 +128,17 @@ body.orderbar-visible .site-header{top:44px}
       image-set(url('/assets/hero-768w.webp') type('image/webp') 1x, url('/assets/hero-768w.jpg') type('image/jpeg') 1x);
   }
 }
+
+
+/* --- a11y/nav: button-based hamburger reset & focus --- */
+button.hamburger{appearance:none;-webkit-appearance:none;background:transparent;border:0;cursor:pointer;color:inherit;padding:.25rem .4rem;border-radius:8px}
+button.hamburger:focus-visible{outline:2px solid var(--brand-2, #f2a900);outline-offset:2px}
+.hamburger span{background: currentColor}
+
+/* --- mobile menu open state --- */
+@media (max-width: 900px){
+  .nav-links.open, #site-menu.open{display:flex}
+}
+
+/* ensure [hidden] truly hides if any resets exist */
+[hidden]{display:none !important}

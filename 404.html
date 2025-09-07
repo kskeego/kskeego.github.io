@@ -124,4 +124,36 @@ fbq('track', 'PageView');
       return {social_target: el.href};
     });
   })();
-</script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));}</script></body></html>
+</script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));}</script><script>
+/* a11y nav toggle */
+(function(){
+  var btn = document.querySelector('button.hamburger[aria-controls]');
+  if(!btn) return;
+  var menuId = btn.getAttribute('aria-controls');
+  var menu = document.getElementById(menuId);
+  if(!menu) return;
+
+  function setState(expanded){
+    btn.setAttribute('aria-expanded', String(expanded));
+    menu.classList.toggle('open', !!expanded);
+    if(expanded){ menu.removeAttribute('hidden'); } else { menu.setAttribute('hidden',''); }
+  }
+
+  // Init
+  setState(btn.getAttribute('aria-expanded') === 'true');
+
+  // Click toggle
+  btn.addEventListener('click', function(){
+    setState(btn.getAttribute('aria-expanded') !== 'true');
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ setState(false); btn.focus(); }
+  });
+
+  // Keep desktop nav visible when resizing up
+  var desktop = window.matchMedia('(min-width: 901px)');
+  function sync(){ if(desktop.matches){ menu.removeAttribute('hidden'); menu.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } }
+  desktop.addEventListener('change', sync); sync();
+})();</script></body></html>
