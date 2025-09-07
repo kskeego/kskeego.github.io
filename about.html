@@ -150,5 +150,25 @@ fbq('track', 'PageView');
       return {social_target: el.href};
     });
   })();
-</script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));}</script></body>
+</script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));}</script><script>
+/* a11y nav toggle */
+(function(){
+  var btn = document.querySelector('button.hamburger[aria-controls]');
+  if(!btn) return;
+  var menuId = btn.getAttribute('aria-controls');
+  var menu = document.getElementById(menuId);
+  if(!menu) return;
+  function setState(expanded){
+    btn.setAttribute('aria-expanded', expanded);
+    if(expanded){ menu.removeAttribute('hidden'); }
+    else{ menu.setAttribute('hidden',''); }
+  }
+  setState(btn.getAttribute('aria-expanded') === 'true');
+  btn.addEventListener('click', function(){
+    setState(btn.getAttribute('aria-expanded') !== 'true');
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ setState(false); btn.focus(); }
+  });
+})();</script></body>
 </html>
